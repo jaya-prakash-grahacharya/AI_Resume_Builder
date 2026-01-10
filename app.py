@@ -3,15 +3,15 @@ import google.generativeai as genai
 from markdown_pdf import MarkdownPdf, Section
 import os
 
-# --- CONFIGURATION ---
+# --- CONFIGURATION --
 st.set_page_config(page_title="AI Resume Builder", page_icon="📄")
 
 # --- GET API KEY (Works on Hugging Face & Streamlit Cloud) ---
-# We look for the key in the "Environment Variables"
+
 api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
-    # If the key is missing, check Streamlit secrets (backup)
+    # If the key is missing
     try:
         api_key = st.secrets["GOOGLE_API_KEY"]
     except:
